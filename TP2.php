@@ -3,7 +3,7 @@ class CompteBancaire {
     private $nom;
     private $solde;
 
-    public function __construct($nom = 'Gana Fall', $solde = 2400) {
+    public function __construct($nom = 'Dupont', $solde = 1000) {
         $this->nom = $nom;
         $this->solde = $solde;
     }
