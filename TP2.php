@@ -8,5 +8,17 @@ class CompteBancaire {
         $this->solde = $solde;
     }
 
+    public function depot($somme) {
+        $this->solde += $somme;
+    }
+
+    public function retrait($somme) {
+        if ($somme <= $this->solde) {
+            $this->solde -= $somme;
+        } else {
+            echo "Fonds insuffisants.";
+        }
+    }
+
 }
 ?>
