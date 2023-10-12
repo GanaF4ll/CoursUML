@@ -20,5 +20,17 @@ class CompteBancaire {
         }
     }
 
+    public function affiche() {
+        echo "Le solde du compte bancaire de {$this->nom} est de {$this->solde} euros.\n";
+    }
 }
+
+$compte1 = new CompteBancaire('Morales', 800);
+$compte1->depot(350);
+$compte1->retrait(200);
+$compte1->affiche();
+
+$compte2 = new CompteBancaire('Wayne', 2000000000000000);
+$compte2->depot(25000000000);
+$compte2->affiche();
 ?>
