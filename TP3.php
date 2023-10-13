@@ -1,84 +1,87 @@
 <?php
 
 class Animal {
-    public $cri;
-    public $taille;
-    public $sexe;
-    public $lieu_d_habitation;
-    public $place_dans_la_chaine_alimentaire;
+    protected $cri;
+    protected $taille;
+    protected $sexe;
+    protected $dents;
 
-    public function manger() {}
+    protected function manger($dents) {}
 
-    public function crier() {}
+    protected function crier() {}
 }
 
 class Mammifere extends Animal {
-    public $couleur_de_pelage;
-    public $nombre_de_pattes = 4;
+    protected $couleur_de_pelage;
+    protected $nombre_de_pattes = 4;
+    protected $mamelles;
 
-    public function allaiter() {}
+    protected function allaiter($mamelles) {}
 
-    public function mordre() {}
+    protected function mordre($dents) {}
 }
 
 class Chat extends Mammifere {
+    private $cri = "miaulement";
 
-    public $nombre_de_pattes = 4;
+    protected function manger($dents) {}
 
+    protected function mordre($dents) {}
 
-    public function manger() {}
-
-    public function mordre() {}
-
-    public function crier() {}
+    protected function crier() {
+        return $this->cri; // Added missing '$this->'
+    }
 }
 
 class Chien extends Mammifere {
+    private $cri = "aboiement";
 
-    public $nombre_de_pattes = 4;
+    protected function manger($dents) {}
 
-    public function manger() {}
+    protected function mordre($dents) {}
 
-    public function mordre() {}
-
-    public function crier() {}
+    protected function crier() {
+        return $this->cri; // Added missing '$this->'
+    }
 }
 
 class Poisson extends Animal {
-    public $couleur_des_ecailles;
-    public $nageoire;
+    protected $couleur_des_ecailles;
+    protected $nageoire;
+    protected $dents;
 
-    public function nager() {}
+    protected function nager($nageoire) {}
 
-    public function mordre() {}
+    protected function mordre($dents) {}
 }
 
 class PoissonRouge extends Poisson {
-    public function manger() {}
+    protected function manger($dents) {}
 
-    public function nager() {}
+    protected function nager($nageoire) {}
 
-    public function mordre() {}
+    protected function mordre($dents) {}
 }
 
 class Requin extends Poisson {
-    public function manger() {}
+    protected function manger($dents) {}
 
-    public function nager() {}
+    protected function nager($nageoire) {}
 
-    public function mordre() {}
+    protected function mordre($dents) {}
 }
 
 ?>
 
+
 <!-- AXE D'AMELIORATION:
   utiliser des constructeurs pour créer des nouveaux objets mammifères et poisson :
   
-  public function __constructMamifere($couleur_de_pelage, $nombre_de_pattes) {
+  protected function __constructMamifere($couleur_de_pelage, $nombre_de_pattes) {
         $this->couleur_de_pelage = $couleur_de_pelage;
         $this->nombre_de_pattes = $nombre_de_pattes;
     }
-   public function __constructPoisson($couleur_des_ecailles, $nageoire) {
+   protected function __constructPoisson($couleur_des_ecailles, $nageoire) {
         $this->couleur_des_ecailles = $couleur_des_ecailles;
         $this->nageoire = $nageoire;
     } -->
